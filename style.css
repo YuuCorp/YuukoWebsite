@@ -1,0 +1,155 @@
+:root {
+    --mainTitle: 4rem;
+    --devTitle: 2rem;
+    --profileSize: 3rem;
+}
+
+.light-theme {
+    --backgroundColor: #F8F0E3;
+    --fontColor: black;
+}
+
+.dark-theme {
+    --backgroundColor: rgb(27, 27, 27);
+    --fontColor: #F8F0E3;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--backgroundColor);
+    font-family: 'Switzer', sans-serif;
+    color: var(--fontColor);
+}
+
+#themeSwitch {
+    margin: 1rem;
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border-radius: 30px;
+    transition: 250ms ease;
+}
+
+#slider {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#slider:checked+.slider {
+    background-color: #2196f3;
+}
+
+#slider:focus+.slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 23px;
+    width: 23px;
+    left: 0px;
+    bottom: 4px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    box-shadow: 0 0px 15px #2020203d;
+    background: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    transform: translateX(19px);
+    background: white;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 5s ease infinite;
+    background-size: 400% 400%;
+}
+
+#title {
+    font-size: var(--mainTitle);
+    font-weight: 800;
+    text-align: center;
+}
+
+#text {
+    max-width: 350px;
+    text-align: center;
+}
+
+#footer>#title {
+    font-size: var(--devTitle);
+}
+
+#devs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev {
+    will-change: contents;
+    width: var(--profileSize);
+    border-radius: 50%;
+    margin: 0.25rem;
+    transition: 250ms ease;
+}
+
+.dev:hover {
+    transform: translateY(-0.2rem);
+    filter: opacity(90%)
+}
