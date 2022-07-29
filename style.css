@@ -10,7 +10,7 @@
 }
 
 .dark-theme {
-    --backgroundColor: rgb(27, 27, 27);
+    --backgroundColor: #1B1B1B;
     --fontColor: #F8F0E3;
 }
 
@@ -34,6 +34,7 @@ body {
     background-color: var(--backgroundColor);
     font-family: 'Switzer', sans-serif;
     color: var(--fontColor);
+    transition: 0.3s ease;
 }
 
 #themeSwitch {
