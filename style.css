@@ -6,12 +6,14 @@
 
 .light-theme {
     --backgroundColor: #F8F0E3;
-    --fontColor: black;
+    --fontColor: #1B1B1B;
+    --boxShadow: rgba(0, 0, 0, 0.3) 0 1px 3px;
 }
 
 .dark-theme {
     --backgroundColor: #1B1B1B;
     --fontColor: #F8F0E3;
+    --boxShadow: rgba(255, 255, 255, 0.5) 0 1px 3px;
 }
 
 @keyframes gradient {
@@ -28,6 +30,11 @@
     }
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -35,6 +42,34 @@ body {
     font-family: 'Switzer', sans-serif;
     color: var(--fontColor);
     transition: 0.3s ease;
+    -webkit-transition: 0.3s ease;
+    will-change: auto;
+}
+
+#inviteMe {
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    background-color: var(--backgroundColor);
+    color: white;
+    height: 30px;
+    border: none;
+    height: 2rem;
+    width: 6rem;
+    padding: 1.25rem;
+    border-radius: 5px;
+    transition: 350ms ease;
+    -webkit-box-shadow: var(--boxShadow);
+    -moz-box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow)
+}
+
+#inviteMe:hover {
+    cursor: pointer;
+    transform: translateY(-0.1rem);
+    filter: opacity(90%)
 }
 
 #themeSwitch {
@@ -111,6 +146,14 @@ input:checked+.slider:before {
     height: 100vh;
 }
 
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 .gradient {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-clip: text;
@@ -148,6 +191,9 @@ input:checked+.slider:before {
     border-radius: 50%;
     margin: 0.25rem;
     transition: 250ms ease;
+    -webkit-box-shadow: var(--boxShadow);
+    -moz-box-shadow: var(--boxShadow);
+    box-shadow: var(--boxShadow)
 }
 
 .dev:hover {
