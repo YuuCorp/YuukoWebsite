@@ -47,23 +47,24 @@ body {
 }
 
 #inviteMe {
-    font-weight: 600;
+    font-weight: 800;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: inherit;
     background-color: var(--backgroundColor);
     color: white;
-    height: 30px;
     border: none;
-    height: 2rem;
-    width: 6rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    aspect-ratio: 24/9;
     padding: 1.25rem;
     border-radius: 5px;
     transition: 350ms ease;
-    -webkit-box-shadow: var(--boxShadow);
-    -moz-box-shadow: var(--boxShadow);
-    box-shadow: var(--boxShadow)
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    mask-composite: exclude;
+    animation: gradient 5s ease infinite;
+    background-size: 400% 400%;
 }
 
 #inviteMe:hover {
