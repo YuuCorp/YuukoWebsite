@@ -1,0 +1,1 @@
+export { default as VueCard } from './VueCard.vue';
