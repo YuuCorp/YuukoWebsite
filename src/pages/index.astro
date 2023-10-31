@@ -1,15 +1,84 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import { VueCard } from "../components/";
 ---
-
 
 <Layout title="Welcome to Yuuko">
   <main>
-    <VueCard />
-	<Card body="hey" href="https://github.com" title="An epic title"/>
+    <div class="flex flex-col gap-5 justify-center items-center text-white">
+      <h1
+        transition:animate="slide"
+        class="text-8xl font-pacifico text-transparent bg-clip-text bg-gradient-to-bl
+        from-sakura-600 to-sakura-300 relative py-6 px-2 tracking-wider pointer-events-none select-none">
+        <span
+          class="text-white absolute right-[40px] top-[5px] text-[2rem] rotate-45 select-none"
+          >🌸
+        </span>
+        <div
+          class="absolute left-0 top-0 w-full h-full bg-sakura-300/10 blur-xl rounded-full -z-10">
+        </div>
+         Yuuko
+      </h1>
+      <div
+        class="font-geist text-center tracking-wide text-neutral-400 leading-8 mt-8">
+        <h2
+          class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white">
+          The only <span
+            class="font-black text-transparent bg-gradient-to-r bg-clip-text from-sakura-400 to-sakura-500 border-b-2 border-sakura-500"
+            >anime</span
+          > bot you'll ever need
+        </h2>
+        <p class="leading-snug text-lg py-[2.5rem]">
+          Yuuko is a free and open source Discord bot that integrates with the
+          <a
+            class="border-b hover:border-sakura-500 hover:text-sakura-500"
+            href="https://anilist.co"
+            target="_blank">AniList API</a
+          >,<br /> providing the users with useful commands for viewing anime,
+          manga, getting recommendations, <br />viewing AniList users profiles
+          without opening a browser tab, and many more.
+        </p>
+        <button
+          transition:animate="fade"
+          id="call-to-action"
+          class="group relative border-sakura-200/20 text-2xl py-4 px-5 rounded-2xl tracking--wider font-semibold
+        bg-gradient-to-br from-sakura-500 to-sakura-300 transition-all text-white group-hover:brightness-125 group-hover:px-16 inline-flex flex-row items-center gap-5">
+          <svg class="w-7" viewBox="0 0 24 24"
+            ><g fill="none" fill-rule="evenodd"
+              ><path
+                d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"
+              ></path><path
+                fill="currentColor"
+                d="M17 3a3 3 0 0 1 2.995 2.824L20 6v4.35l.594-.264c.614-.273 1.322.15 1.4.798L22 11v8a2 2 0 0 1-1.85 1.995L20 21H4a2 2 0 0 1-1.995-1.85L2 19v-8c0-.672.675-1.147 1.297-.955l.11.041l.593.264V6a3 3 0 0 1 2.824-2.995L7 3h10Zm3 9.539l-7.188 3.194a2 2 0 0 1-1.624 0L4 12.54V19h16v-6.461ZM17 5H7a1 1 0 0 0-1 1v5.239l6 2.667l6-2.667V6a1 1 0 0 0-1-1Zm-5 3a1 1 0 0 1 .117 1.993L12 10h-2a1 1 0 0 1-.117-1.993L10 8h2Z"
+              ></path></g
+            ></svg
+          >
+           Invite
+          <div
+            class="absolute left-0 top-0 w-full h-full bg-sakura-400 blur-lg transition-all -z-10 group-hover:blur-xl">
+          </div>
+        </button>
+      </div>
+    </div>
   </main>
 </Layout>
 
-<style></style> 
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+  /* Import from ./public/Geist/GeistVF.woff2 */
+
+  @font-face {
+    font-family: "GeistVF";
+    src: url("/Geist/GeistVF.woff2") format("woff2");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  .font-pacifico {
+    font-family: "Pacifico", cursive;
+  }
+
+  .font-roboto {
+    font-family: "Roboto", sans-serif;
+  }
+</style>

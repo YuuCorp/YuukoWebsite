@@ -1,1 +1,1 @@
-export { default as VueCard } from './VueCard.vue';
+export { default as Header } from './Header.astro';
