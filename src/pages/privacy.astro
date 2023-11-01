@@ -4,7 +4,117 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Privacy Policy">
   <div class="text-white">
-    <h1>Privacy Policy</h1>
-    <p>Privacy Policy stuff here</p>
+    <h1 class="text-4xl mt-5 text-sakura-500"><strong>Yuuko - Privacy Policy</strong></h1>
+    <p class="text-gray-400 mb-5"><strong>Last Updated: November 1, 2023</strong></p>
+    <div class="flex flex-col gap-2 mb-5">
+      <p>
+        Thank you for using Yuuko, the Discord bot. We are committed to protecting
+        your privacy and ensuring the security of your personal data. This Privacy
+        Policy outlines how we collect, use, and safeguard your information. By
+        using Yuuko, you consent to the practices described in this policy.
+      </p>
+      <h2><strong>Information We Collect</strong></h2>
+      <ol>
+        <li>
+          <p>
+            <strong>AniList Tokens:</strong> Yuuko may collect AniList tokens that
+            you choose to provide. These tokens are required for certain features,
+            such as personalized recommendations and posting activities. Please
+            note that we encrypt these tokens using RSA for your security.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Command Usage Statistics, Discord IDs, Usernames:</strong> We
+            collect data related to command usage statistics, Discord user IDs,
+            and usernames. This information is essential for monitoring usage
+            trends, generating statistics, and preventing the abuse of certain
+            resource-intensive features. Additionally, this data may be used for
+            banning users who violate our Terms of Service. You may choose to
+            opt-out of this data collection, but doing so will prevent you from
+            using certain features of the bot.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>User-Supplied Birthdays:</strong> Yuuko allows users to supply
+            their birthdays for specific guilds. You may choose to provide or
+            delete this information. Your birthday is used to celebrate your
+            special day with your fellow guild members and to personalize your
+            experience.
+          </p>
+        </li>
+      </ol>
+      <h2><strong>How We Use Your Data</strong></h2>
+      <ol>
+        <li>
+          <p>
+            <strong>AniList Tokens:</strong> We use your AniList tokens
+            exclusively for the purpose of providing you with personalized
+            recommendations and enabling you to post activities related to
+            AniList. These tokens are securely encrypted to protect your privacy.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Command Usage Statistics, Discord IDs, Usernames:</strong>
+            This data is utilized to monitor bot usage, generate statistics, and
+            identify and prevent abuse of our services. In cases of misuse or
+            violations of our Terms of Service, this data may be used to enforce
+            disciplinary actions.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>User-Supplied Birthdays:</strong> Birthdays are used for
+            special celebrations within your guild and to provide a more
+            personalized experience.
+          </p>
+        </li>
+      </ol>
+      <h2><strong>Data Security</strong></h2>
+      <p>
+        We take the security of your data seriously. We implement
+        industry-standard security measures to protect your information from
+        unauthorized access, disclosure, alteration, and destruction. Your AniList
+        tokens are encrypted using RSA for an added layer of protection.
+      </p>
+      <h2><strong>Your Rights</strong></h2>
+      <p>
+        You have the right to access, correct, or delete your data. If you wish to
+        delete your AniList tokens or supplied birthdays, please contact us using
+        the contact information provided below.
+      </p>
+      <h2><strong>Third-Party Disclosures</strong></h2>
+      <p>
+        We do not share your personal data with third parties, except as required
+        by law or to protect our rights.
+      </p>
+      <h2><strong>Changes to this Privacy Policy</strong></h2>
+      <p>
+        We reserve the right to update this Privacy Policy as necessary to reflect
+        changes in our data practices. Please review this policy periodically for
+        any updates.
+      </p>
+      <h2><strong>Contact Us</strong></h2>
+      <p>
+        If you have questions, concerns, or requests related to your privacy or
+        this Privacy Policy, you can reach us at
+        <a class="text-sakura-500 generic-hover" href="mailto:hello@yuuko.sh">hello@yuuko.sh</a>.
+      </p>
+      <p>
+        By using Yuuko, you agree to the terms outlined in this Privacy Policy.
+      </p>
+    </div>
   </div>
 </Layout>
+
+<style>
+h2 {
+  @apply text-2xl mt-6 text-sakura-400 pb-1 before:content-['>\00a0'] underline underline-offset-8;
+}
+
+p > strong {
+  @apply text-sakura-200;
+}
+</style>
