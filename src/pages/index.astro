@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { VueCard } from "../components/";
 ---
 
 <Layout title="Welcome to Yuuko">
   <main>
-    <div class="flex flex-col gap-5 justify-center items-center text-white">
+    <div
+      class="flex h-[calc(100svh-75px)] flex-col gap-5 justify-center items-center text-white">
       <h1
-        transition:animate="slide"
+        transition:name="logo"
         class="text-8xl font-pacifico text-transparent bg-clip-text bg-gradient-to-bl
         from-sakura-600 to-sakura-300 relative py-6 px-2 tracking-wider pointer-events-none select-none">
         <span
@@ -19,7 +21,7 @@ import Layout from "../layouts/Layout.astro";
          Yuuko
       </h1>
       <div
-        class="font-geist text-center tracking-wide text-neutral-400 leading-8 mt-8">
+        class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8">
         <h2
           class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white">
           The only <span
@@ -34,14 +36,13 @@ import Layout from "../layouts/Layout.astro";
             href="https://anilist.co"
             target="_blank">AniList API</a
           >,<br /> providing the users with useful commands for viewing anime,
-          manga, getting recommendations, <br />viewing AniList users profiles
-          without opening a browser tab, and many more.
+          manga, and getting recommendations.
         </p>
         <button
           transition:animate="fade"
           id="call-to-action"
-          class="group relative border-sakura-200/20 text-2xl py-4 px-5 rounded-2xl tracking--wider font-semibold
-        bg-gradient-to-br from-sakura-500 to-sakura-300 transition-all text-white group-hover:brightness-125 group-hover:px-16 inline-flex flex-row items-center gap-5">
+          class="group relative border-sakura-200/20 text-xl py-3 px-4 rounded-2xl tracking-wider font-semibold
+          bg-gradient-to-br from-sakura-500 to-sakura-300 transition-all text-white group-hover:brightness-125 group-hover:px-16 inline-flex flex-row items-center gap-5">
           <svg class="w-7" viewBox="0 0 24 24"
             ><g fill="none" fill-rule="evenodd"
               ><path
@@ -59,26 +60,11 @@ import Layout from "../layouts/Layout.astro";
         </button>
       </div>
     </div>
+    <div class="flex h-[100svh] flex-col gap-5 justify-center items-center text-white">
+      <VueCard client:visible transition:animate="slide"></VueCard>
+    </div>
   </main>
 </Layout>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-  /* Import from ./public/Geist/GeistVF.woff2 */
-
-  @font-face {
-    font-family: "GeistVF";
-    src: url("/Geist/GeistVF.woff2") format("woff2");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  .font-pacifico {
-    font-family: "Pacifico", cursive;
-  }
-
-  .font-roboto {
-    font-family: "Roboto", sans-serif;
-  }
 </style>

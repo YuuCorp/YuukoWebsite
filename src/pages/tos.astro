@@ -3,8 +3,24 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="ToS Page">
-  <div class="text-white">
-    <h1>Terms of Service</h1>
-    <p>Some terms of service</p>
+  <div
+    class="flex h-[calc(100svh-75px)] flex-col gap-5 justify-start items-center text-white">
+    <h1
+      transition:name="logo"
+      class="text-4xl font-pacifico text-transparent bg-clip-text bg-gradient-to-bl
+    from-sakura-600 to-sakura-300 relative py-6 px-2 tracking-wider pointer-events-none select-none">
+      <span
+        class="text-white absolute right-[20px] top-[5px] text-[1rem] rotate-45 select-none"
+        >🌸
+      </span>
+      <div
+        class="absolute left-0 top-0 w-full h-full bg-sakura-300/10 blur-xl rounded-full -z-10">
+      </div>
+       Yuuko
+    </h1>
+    <p transition:animate="fade" class="text-lg tracking-wide">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi debitis in quasi quod laborum necessitatibus, porro asperiores assumenda distinctio dignissimos, itaque libero? Odit, ratione? Esse ut numquam modi, rem id soluta aspernatur delectus quis quos. Minus nam corrupti accusamus deleniti facere! Perferendis, a harum! Quam asperiores natus cum ea vero enim quidem tempora quaerat, ex obcaecati quod hic commodi magnam rem consequatur labore provident quia veritatis eaque eius delectus iste deleniti iure quibusdam. Ullam animi sequi, adipisci voluptate vero dolorem sapiente molestias ipsum excepturi incidunt repellat aperiam vel. Unde veniam omnis quidem ipsum deleniti quod dolore maxime reprehenderit expedita ipsa.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi debitis in quasi quod laborum necessitatibus, porro asperiores assumenda distinctio dignissimos, itaque libero? Odit, ratione? Esse ut numquam modi, rem id soluta aspernatur delectus quis quos. Minus nam corrupti accusamus deleniti facere! Perferendis, a harum! Quam asperiores natus cum ea vero enim quidem tempora quaerat, ex obcaecati quod hic commodi magnam rem consequatur labore provident quia veritatis eaque eius delectus iste deleniti iure quibusdam. Ullam animi sequi, adipisci voluptate vero dolorem sapiente molestias ipsum excepturi incidunt repellat aperiam vel. Unde veniam omnis quidem ipsum deleniti quod dolore maxime reprehenderit expedita ipsa.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi debitis in quasi quod laborum necessitatibus, porro asperiores assumenda distinctio dignissimos, itaque libero? Odit, ratione? Esse ut numquam modi, rem id soluta aspernatur delectus quis quos. Minus nam corrupti accusamus deleniti facere! Perferendis, a harum! Quam asperiores natus cum ea vero enim quidem tempora quaerat, ex obcaecati quod hic commodi magnam rem consequatur labore provident quia veritatis eaque eius delectus iste deleniti iure quibusdam. Ullam animi sequi, adipisci voluptate vero dolorem sapiente molestias ipsum excepturi incidunt repellat aperiam vel. Unde veniam omnis quidem ipsum deleniti quod dolore maxime reprehenderit expedita ipsa.
+    </p>
+    <!-- <Card  body="This is an example anilist card" href="#" title="Anilist Integration"/> -->
   </div>
 </Layout>
