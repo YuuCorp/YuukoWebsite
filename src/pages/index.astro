@@ -5,23 +5,29 @@ import { VueCard } from "../components/";
 
 <Layout title="Welcome to Yuuko">
   <main>
-    <div
-      class="flex h-[calc(100svh-75px)] flex-col gap-5 justify-center items-center text-white">
+    <section
+      id="section-hero"
+      class="flex h-[calc(100svh-75px)] flex-col gap-5 justify-start items-center text-white relative">
       <h1
         transition:name="logo"
-        class="text-8xl font-pacifico text-transparent bg-clip-text bg-gradient-to-bl
+        class="text-8xl font-pacifico mt-[10%] text-transparent bg-clip-text bg-gradient-to-bl
         from-sakura-600 to-sakura-300 relative py-6 px-2 tracking-wider pointer-events-none select-none">
-        <span
+        <!-- <span
           class="text-white absolute right-[40px] top-[5px] text-[2rem] rotate-45 select-none"
           >🌸
-        </span>
+        </span> -->
+        <img
+          class="absolute right-[40px] top-[5px] h-[6rem] rotate-45 select-none"
+          src="/petals.png"
+          alt=""
+        />
         <div
           class="absolute left-0 top-0 w-full h-full bg-sakura-300/10 blur-xl rounded-full -z-10">
         </div>
          Yuuko
       </h1>
       <div
-        class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8">
+        class="font-inter mt-8 text-center tracking-wide text-neutral-400 leading-8">
         <h2
           class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white">
           The only <span
@@ -59,12 +65,43 @@ import { VueCard } from "../components/";
           </div>
         </button>
       </div>
-    </div>
-    <div class="flex h-[100svh] flex-col gap-5 justify-center items-center text-white">
-      <VueCard client:visible transition:animate="slide"></VueCard>
-    </div>
+      <p class="text-white/75 absolute bottom-5 animate-bounce flex flex-row gap-1 items-center justify-center">
+        <svg class="h-7" viewBox="0 0 24 24"><path fill="currentColor" d="M16.59 5.59L18 7l-6 6l-6-6l1.41-1.41L12 10.17l4.59-4.58m0 6L18 13l-6 6l-6-6l1.41-1.41L12 16.17l4.59-4.58Z"/></svg>
+        Scroll for more
+      </p>
+    </section>
+    <section
+      class="flex h-[calc(100svh-50px)] flex-col gap-5 justify-start items-center text-white"
+      id="section-features">
+      <div
+        class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8">
+        <h2
+          class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white leading-[3.5rem]">
+          Jam packed with <br><span
+            class="font-black text-transparent bg-gradient-to-r bg-clip-text from-sakura-400 to-sakura-500 border-b-2 border-sakura-500"
+            >features</span
+          >
+        </h2>
+        <p class="leading-snug text-lg py-[2.5rem]">
+          From anime to manga, Yuuko has it all. With a wide range of commands to choose from, you'll never be bored again.
+        </p>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
+@keyframes light-bounce {
+    0%, 100% {
+        transform: translateY(-5%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+}
+.animate-light-bounce {
+    animation: light-bounce 1s infinite;
+}
 </style>
