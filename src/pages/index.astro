@@ -1,13 +1,123 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { VueCard } from "../components/";
+import Card from "../components/Card.astro";
+
+type FeatureCardContent = {
+  icon: string;
+  title: string;
+  body: string;
+}
+
+const cards: FeatureCardContent[] = [
+  {
+    title: "Anime",
+    body: "Get information about your favorite anime, or find new ones to watch.",
+    icon: "https://api.iconify.design/mdi:television-classic.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Manga",
+    body: "Get information about your favorite manga, or find new ones to read.",
+    icon: "https://api.iconify.design/mdi:book-open-variant.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Characters",
+    body: "Get information about your favorite anime and manga characters.",
+    icon: "https://api.iconify.design/mdi:account.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Studios",
+    body: "Get information about your favorite anime studios.",
+    icon: "https://api.iconify.design/mdi:movie-roll.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Staff",
+    body: "Get information about your favorite anime and manga staff.",
+    icon: "https://api.iconify.design/mdi:account-group.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Recommendations",
+    body: "Get recommendations for anime and manga based on your favorites.",
+    icon: "https://api.iconify.design/material-symbols:recommend.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Recents",
+    body: "Show off the anime and manga you've recently watched and read to your friends.",
+    icon: "https://api.iconify.design/mdi:history.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Airing",
+    body: "Get information about currently airing anime.",
+    icon: "https://api.iconify.design/mdi:airplane-takeoff.svg?color=%23FF8FA3"
+  },
+  {
+    title: "News",
+    body: "Get the latest news about anime and manga.",
+    icon: "https://api.iconify.design/mdi:rss.svg?color=%23FF8FA3"
+  },
+  {
+    title: "View Activity",
+    body: "Get information about your or other's AniList activity.",
+    icon: "https://api.iconify.design/mdi:account-clock.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Post Activity",
+    body: "Post your activity to AniList right from the comfort of Discord",
+    icon: "https://api.iconify.design/mdi:post.svg?color=%23FF8FA3"
+  },
+  {
+    title: "User",
+    body: "Get information about yourself or other AniList users.",
+    icon: "https://api.iconify.design/mdi:account.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Trace",
+    body: "Trace the source of an anime image.",
+    icon: "https://api.iconify.design/mdi:vector-triangle.svg?color=%23FF8FA3"
+  },
+  {
+    title: "Birthdays",
+    body: "Remember and celebrate your guild member's birthdays with Yuuko.",
+    icon: "https://api.iconify.design/mdi:cake-variant.svg?color=%23FF8FA3"
+  },
+  {
+    title: "And many more...",
+    body: "Yuuko is constantly being updated with new features and improvements.",
+    icon: "https://api.iconify.design/mdi:plus.svg?color=%23FF8FA3"
+  }
+]
+
+function arrayTill(n: number) {
+  return Array.from(Array(n).keys())
+}
 ---
 
+<script>
+import VanillaTilt from 'vanilla-tilt';
+const elem = document.querySelector("#tech-honeycomb")! as HTMLElement;
+VanillaTilt.init(elem, {
+  max: 5,
+});
+
+let hasHiddenScrollElem = false;
+window.addEventListener("scroll", () => {
+  if (hasHiddenScrollElem) return;
+  if (window.scrollY > 0) {
+    document.querySelector("#scroll-for-more")!.classList.add("opacity-[0]");
+    setTimeout(() => {
+      document.querySelector("#scroll-for-more")!.classList.add("hidden");
+    }, 500);
+    hasHiddenScrollElem = true;
+  }
+});
+</script>
+
 <Layout title="Welcome to Yuuko">
-  <main>
+  <main class="mb-5">
+    <!-- Hero -->
     <section
       id="section-hero"
-      class="flex h-[calc(100svh-75px)] flex-col gap-5 justify-start items-center text-white relative">
+      class="flex h-[calc(100svh-75px)] flex-col gap-5 justify-start items-center text-white relative"
+    >
       <h1
         transition:name="logo"
         class="text-8xl font-pacifico mt-[10%] text-transparent bg-clip-text bg-gradient-to-bl
@@ -30,18 +140,15 @@ import { VueCard } from "../components/";
         class="font-inter mt-8 text-center tracking-wide text-neutral-400 leading-8">
         <h2
           class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white">
-          The only <span
-            class="font-black text-transparent bg-gradient-to-r bg-clip-text from-sakura-400 to-sakura-500 border-b-2 border-sakura-500"
-            >anime</span
-          > bot you'll ever need
+          The only <span class="hero-highlight">anime</span> bot you'll ever need
         </h2>
         <p class="leading-snug text-lg py-[2.5rem]">
           Yuuko is a free and open source Discord bot that integrates with the
           <a
-            class="border-b hover:border-sakura-500 hover:text-sakura-500"
+            class="generic-link"
             href="https://anilist.co"
             target="_blank">AniList API</a
-          >,<br /> providing the users with useful commands for viewing anime,
+          >,<br> providing the users with useful commands for viewing anime,
           manga, and getting recommendations.
         </p>
         <button
@@ -65,28 +172,154 @@ import { VueCard } from "../components/";
           </div>
         </button>
       </div>
-      <p class="text-white/75 absolute bottom-5 animate-bounce flex flex-row gap-1 items-center justify-center">
+      <p id="scroll-for-more" class="text-white/75 absolute bottom-5 animate-bounce flex flex-row gap-1 items-center justify-center transition duration-200">
         <svg class="h-7" viewBox="0 0 24 24"><path fill="currentColor" d="M16.59 5.59L18 7l-6 6l-6-6l1.41-1.41L12 10.17l4.59-4.58m0 6L18 13l-6 6l-6-6l1.41-1.41L12 16.17l4.59-4.58Z"/></svg>
         Scroll for more
       </p>
     </section>
+
+    <!-- Features -->
     <section
-      class="flex h-[calc(100svh-50px)] flex-col gap-5 justify-start items-center text-white"
-      id="section-features">
+      class="flex min-h-[calc(100svh-50px)] flex-col gap-5 justify-center items-center text-white"
+      id="section-features"
+    >
       <div
         class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8">
         <h2
           class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white leading-[3.5rem]">
-          Jam packed with <br><span
-            class="font-black text-transparent bg-gradient-to-r bg-clip-text from-sakura-400 to-sakura-500 border-b-2 border-sakura-500"
-            >features</span
-          >
+          Jam packed with <br><span class="hero-highlight">features</span>
         </h2>
         <p class="leading-snug text-lg py-[2.5rem]">
           From anime to manga, Yuuko has it all. With a wide range of commands to choose from, you'll never be bored again.
         </p>
       </div>
+      <div class="grid grid-cols-3 gap-4 w-[80%]">
+        { cards.map(card =>
+          <Card title={card.title} body={card.body} icon={card.icon}></Card>
+        )}
+      </div>
     </section>
+
+    <!-- Open Source -->
+    <section
+      class="flex min-h-[calc(100svh-50px)] flex-col gap-5 justify-center items-center text-white"
+      id="section-features"
+    >
+      <div
+        class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8"
+      >
+        <h2
+          class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white leading-[3.5rem]">
+          Fully <span
+            class="font-black text-transparent bg-gradient-to-r bg-clip-text from-sakura-400 to-sakura-500 border-b-2 border-sakura-500"
+            >open-source</span
+          >
+        </h2>
+      </div>
+      <div id="foss-emblem" class="flex flex-row gap-5 items-center justify-center my-12" aria-labelledby="Yuuko loves open-source" >
+        <img src="https://i.imgur.com/8fFCTX1.png" alt="Yuuko Logo" class="w-48 h-48 rounded-full border-4 border-sakura-500 p-2">
+        {
+          arrayTill(5).map(n => {
+            return (
+              <div class="w-5 h-5 rounded-full bg-sakura-400 animate-pulse" style={`animation-delay: ${n*200}ms;`}></div>
+            )
+          })
+        }
+        <div id="foss-heart" class="relative">
+          <div class="absolute top-0 left-0 w-full h-full bg-red-500/30 blur-xl -z-10 rounded-full"></div>
+          <svg aria-labelledby="Heart Icon" class="w-32 h-32 fill-red-500 animate-pulse" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12 20.325q-.35 0-.713-.125t-.637-.4l-1.725-1.575q-2.65-2.425-4.788-4.813T2 8.15Q2 5.8 3.575 4.225T7.5 2.65q1.325 0 2.5.562t2 1.538q.825-.975 2-1.538t2.5-.562q2.35 0 3.925 1.575T22 8.15q0 2.875-2.125 5.275T15.05 18.25l-1.7 1.55q-.275.275-.637.4t-.713.125Z"/></svg>
+        </div>
+        {
+          arrayTill(5).map(n => {
+            return (
+              <div class="w-5 h-5 rounded-full bg-sakura-400 animate-pulse" style={`animation-delay: ${(n + 5)*200}ms;`}></div>
+            )
+          })
+        }
+        <div>
+          <svg class="h-48 w-48 p-2 border-4 border-sakura-500 rounded-full fill-sakura-500" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M12.001 2c5.523 0 10 4.477 10 10c0 4.13-2.504 7.676-6.077 9.201l-2.518-6.55A3 3 0 0 0 12 9a3 3 0 0 0-1.404 5.652l-2.518 6.55A10.003 10.003 0 0 1 2 12C2 6.477 6.477 2 12 2Z"/></svg>
+        </div>
+      </div>
+      <p class="text-neutral-400 leading-snug text-lg py-[2.5rem] text-center">
+        From the very start, Yuuko has been open-source. This means that anyone can contribute to the bot,<br>
+        and peek at its inner workings. You can host your own version of Yuuko if you want to.
+      </p>
+
+    </section>
+
+    <!-- Modern Technologies -->
+    <section
+      class="flex min-h-[calc(100svh-50px)] flex-col gap-5 justify-center items-center text-white"
+      id="section-modern-tech"
+    >
+      <div
+        class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8"
+      >
+        <h2
+          class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white leading-[3.5rem]">
+          Built with <br><span class="hero-highlight">modern</span> technologies
+        </h2>
+        <p class="leading-snug text-lg py-[2.5rem]">
+          Yuuko is built with a modern technology stack, with a focus on performance, safety and security. <br>
+          With scalability in mind, Yuuko can handle thousands of users at once, without any disruption in service. <br>
+          Our developers are working hard every day to make Yuuko the most seamless experience possible.
+        </p>
+      </div>
+      <div id="tech-honeycomb">
+        <img data-tilt data-tilt-scale="0.95" class="max-w-[600px]" src="/tech-honeycomb.png" alt="Tech Honeycomb">
+      </div>
+      <p class="text-neutral-400 leading-snug text-lg py-[2.5rem] text-center hidden">
+        Yuuko uses
+        <a class="generic-link" href="#">Bun</a>,
+        a really fast TS/JS runtime written in Zig.
+        For the database we use <a class="generic-link" href="#">SQLite</a>,<br>
+        a fast and reliable SQL database, together with 
+        <a class="generic-link" href="#">Drizzle ORM</a> for database interactions.<br>
+        Yuuko is written with <a class="generic-link" href="#">TypeScript</a>, a superset of JavaScript,<br>
+        using the <a class="generic-link" href="#">Discord.js</a> library for interacting with the Discord API.
+      </p>
+    </section>
+
+    <!-- Call to action 2 -->
+    <section
+    class="flex min-h-[calc(100svh-50px)] flex-col gap-5 justify-center items-center text-white"
+    id="section-cta"
+  >
+    <div
+      class="font-inter text-center tracking-wide text-neutral-400 leading-8 mt-8"
+    >
+      <h2
+        class="tracking-wider font-bold text-5xl pt-[3rem] text-7 text-white leading-[3.5rem]">
+        So, what are you <br><span class="hero-highlight">waiting</span> for?
+      </h2>
+      <p class="leading-snug text-lg py-[2.5rem]">
+        There's thousands of users enjoying Yuuko every day. Why not join them?
+      </p>
+    </div>
+    <div id="cta-2">
+        <button
+          transition:animate="fade"
+          id="call-to-action"
+          class="group relative border-sakura-200/20 text-xl py-3 px-4 rounded-2xl tracking-wider font-semibold
+          bg-gradient-to-br from-sakura-500 to-sakura-300 transition-all text-white group-hover:brightness-125 group-hover:px-16 inline-flex flex-row items-center gap-5"
+      >
+        <svg class="w-7" viewBox="0 0 24 24"
+          ><g fill="none" fill-rule="evenodd"
+            ><path
+              d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"
+            ></path><path
+              fill="currentColor"
+              d="M17 3a3 3 0 0 1 2.995 2.824L20 6v4.35l.594-.264c.614-.273 1.322.15 1.4.798L22 11v8a2 2 0 0 1-1.85 1.995L20 21H4a2 2 0 0 1-1.995-1.85L2 19v-8c0-.672.675-1.147 1.297-.955l.11.041l.593.264V6a3 3 0 0 1 2.824-2.995L7 3h10Zm3 9.539l-7.188 3.194a2 2 0 0 1-1.624 0L4 12.54V19h16v-6.461ZM17 5H7a1 1 0 0 0-1 1v5.239l6 2.667l6-2.667V6a1 1 0 0 0-1-1Zm-5 3a1 1 0 0 1 .117 1.993L12 10h-2a1 1 0 0 1-.117-1.993L10 8h2Z"
+            ></path></g
+          ></svg
+        >
+         Invite
+        <div
+          class="absolute left-0 top-0 w-full h-full bg-sakura-400 blur-lg transition-all -z-10 group-hover:blur-xl">
+        </div>
+      </button>
+    </div>
+  </section>
   </main>
 </Layout>
 
@@ -103,5 +336,13 @@ import { VueCard } from "../components/";
 }
 .animate-light-bounce {
     animation: light-bounce 1s infinite;
+}
+
+.hero-highlight {
+  @apply font-black text-transparent bg-gradient-to-r bg-clip-text from-sakura-400 to-sakura-500 border-b-2 border-sakura-500;
+}
+
+.generic-link {
+  @apply border-b hover:border-sakura-500 hover:text-sakura-500;
 }
 </style>
