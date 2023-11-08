@@ -17,6 +17,7 @@ export default {
         "sakura-700": "#A4133C",
         "sakura-800": "#800F2F",
         "sakura-900": "#590D22",
+        "y-gray": "#13151a",
       },
     },
   },
